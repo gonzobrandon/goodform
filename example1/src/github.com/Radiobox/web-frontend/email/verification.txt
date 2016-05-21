@@ -1,0 +1,15 @@
+Welcome to Radiobox!
+
+We need to verify your email address. Just click on the link below and you will be on your way to enjoying live streaming music and more.
+
+VERIFY
+We’re currently in Beta (testing) mode - so we welcome comments and suggestions. You can send us an email to: info@theradiobox.com or look for the feedback link on the side of our website.
+
+Team Radiobox
+
+P.S. If you dont see an orange button above, click (or copy paste into your browser) this link to verify your email:
+
+http://theradiobox.com/email/verify?token={{.Id}}
+
+
+

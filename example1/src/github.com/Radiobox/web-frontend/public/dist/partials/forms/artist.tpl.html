@@ -1,0 +1,71 @@
+<div loading="preloading"></div>
+<form ng-if="user.isLoggedIn" name="artistForm" novalidate class="row" slide-down="!preloading">
+	<div class="col-sm-6">
+		<h4>Facebook Import (optional)</h4>
+		<div class="form-group clearfix">
+			<label>Page Url</label>
+			<span class="warn" slide-down="errors.facebook">{{errors.facebook}}</span>
+			<div class="col-xs-8" style="padding-left:0;">
+				<input class="form-control" name="facebook" type="text" ng-enter="fbImport()" ng-model="meta.facebook" />
+			</div>
+			<button type="button" ng-click="fbImport()" class="btn btn-default col-xs-4">Import</button>
+		</div>
+		<h4>General</h4>
+		<div class="form-group">
+			<label>Artist Name</label>
+			<span class="warn" slide-down="errors.username">{{errors.username}}</span>
+			<input class="form-control" name="username" placeholder="" type="text" ng-model="artist.username" />
+		</div>
+		<div class="form-group">
+			<label>About Blurb</label>
+			<span class="warn" slide-down="errors.description">{{errors.description}}</span>
+			<textarea class="form-control" name="description" ng-model="artist.description"></textarea>
+		</div>
+		<div class="form-group">
+			<label>Contact Email</label>
+			<span class="warn" slide-down="errors.contact_email">{{errors.contact_email}}</span>
+			<input class="form-control" name="contact_email" placeholder="" type="email" ng-model="artist.contact_email" />
+		</div>
+		<div class="form-group">
+			<label>Tags</label>
+			<div class="col-xs-8" style="padding-left:0;">
+				<input class="form-control" name="temp.tag" type="text" ng-model="temp.tag" ng-enter="addTag()" />
+			</div>
+			<button type="button" ng-click="addTag()" class="btn btn-default col-xs-4">Add</button>
+			<div class="clearfix"></div>
+			<ul class="tags">
+				<li ng-repeat="tag in artist.keywords track by $index">{{tag}} &nbsp;&nbsp;&nbsp; <button type="button" ng-click="removeTag(tag)" class="btn-default">x</button></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		
+		<h4>Location</h4>
+		<span class="warn" slide-down="errors.hometown_address">{{errors.hometown_address}}</span>
+		<div address ng-model="artist.hometown_address" ></div>
+	</div>
+	<div class="col-sm-6">
+		<h4>Images</h4>
+		<div class="form-group" style="position:relative;">
+			<label>Square Image</label>
+			<span class="warn" slide-down="errors.pic_square">{{errors.pic_square}}</span>
+			<div image-wiz ng-model="artist.pic_square" orig-width="200" aspect="1"></div>
+		</div>
+		<div class="form-group" style="position:relative;">
+			<label>Banner Image</label>
+			<span class="warn" slide-down="errors.pic_cover">{{errors.pic_cover}}</span>
+			<div image-wiz ng-model="artist.pic_cover" aspect="{{851/315}}"></div>
+		</div>
+		<div class="form-group">
+			<button ng-click="save()" type="button" ng-disabled="modalForm.$invalid" class="btn btn-default">
+				<span ng-hide="loading">SAVE</span>
+				<i class="fa fa-spin fa-sun-o disabled" ng-show="loading" ng-hide="!loading"></i>
+			</button>
+			<button type="button" ng-if="onCancel" ng-click="onCancel()" class="btn btn-default">
+				<span ng-hide="loading">CANCEL</span>
+			</button>
+		</div>
+	</div>
+</form>
+<div ng-show="!user.isLoggedIn && !user.loading">
+	Log in ya dummy!
+</div>

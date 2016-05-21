@@ -1,0 +1,30 @@
+<div class="col-sm-12">
+	<h1>VENUES</h1>
+	<div class="pull-right">
+		<a href="javascript:void(0)" ng-click="addNew = !addNew">New venue</a>
+	</div>
+	<ul class="ruled clear add-new" slide-down="addNew">
+		<li>
+			<div class="col-xs-12" form-venue on-cancel="addNew = !addNew" on-create="pushNew($response)"></div>
+			<div class="clear"></div>
+		</li>
+	</ul>
+	<ul class="ruled clear" slide-down="!loadingList">
+		<li ng-repeat="venue in venues">
+			<div class="pull-right">
+				<a href="#" ng-click="toggleEditor($index)">edit</a>
+			</div>
+			<a ng-href="/{{venue.slug}}/">{{venue.name}}</a>
+			<ul class="ruled clear add-new" slide-down="editorSlide[$index]" ng-if="editorIf[$index]" style="margin: 6px 0 -6px;">
+				<li>
+					<div class="col-xs-12" form-venue model-id="venue.id" on-cancel="toggleEditor($index)" ng-model="venues[$index]" on-update="toggleEditor($index)"></div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</li>
+		<li ng-if="venues.length == 0">Nothing Here. Start by clicking "New venue"</li>
+	</ul>
+	<ul ng-show="loadingList" class="ruled clear">
+		<li loading="loadingList"></li>
+	</ul>
+</div>

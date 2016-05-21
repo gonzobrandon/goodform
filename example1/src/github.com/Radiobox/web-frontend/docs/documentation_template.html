@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Radiobox API Documentation</title>
+  </head>
+  <body>
+    <h3>Site Map:</h3>
+    <p>The following endpoints have a mapping in our settings</p>
+    <ul>
+      {{range $name, $path := .SiteMap}}
+      <li><strong>{{$name}}</strong>: {{$path}}</li>
+      {{end}}
+    </ul>
+  </body>
+</html>

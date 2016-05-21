@@ -1,0 +1,52 @@
+	<section class="col-sm-6 col-xs-9 gutter-top sub-body">
+		<h2>TRACKS AND SHOWS</h2>
+		<div loading="!albums"></div>
+		
+		<ul ng-show="albums.length > 0" class="album-list">
+			<li ng-repeat="album in albums track by $index">
+				<div class="cover">
+					<img class="full" ng-src="{{ album.pic_square || artist.pic_square }}?width=100" alt="" />
+					<div class="social">
+						<button>SHARE <i class="fa fa-caret-down"></i></button>
+					</div>
+				</div>
+				<div>
+					<div class="title coal">
+						<span class="strong uppercase">{{album.title}}</span>
+						<!--<span class="count">{{album.tracks.length}} SONGS</span>-->
+						<!--<span class="location">Venue Name City, St</span>-->
+					</div>
+					<ul class="tracks">
+						<li ng-init="x = 2" ng-repeat="track in album.tracks.response track by $index">
+							<div class="pull-left strong">{{$index+1}}.</div>
+							<rating state-on="'open'" state-off="'solid'" max="10" value="x" class="pull-right rating"></rating>
+							<a class="name" href="#" ng-click="playTrack(track.playlistIndex)">{{track.title}}</a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</li>
+		</ul>
+		<strong class="empty-text clearfix" ng-show="albums.length==0">no albums here</strong>
+	</section>
+	<section class="col-md-3 col-xs-8 sidebar gutter-top">
+		<h2>SCHEDULE</h2>
+		<div loading="!events"></div>
+		<ul ng-show="events.length > 0" class="schedule">
+			<li ng-repeat="event in events track by $index">
+				<div class="table-row">
+					<div class="calDate" ng-init="date = Date(event.scheduled_start);">
+							<div class="month">{{ months[date.getMonth()-1] }}</div>
+							<div class="day">{{(date.getDate() < 10 ? '0' : 0 )+date.getDate()}}</div>
+					</div>
+					<div class="details">
+						<div><strong>LIVE SHOW</strong></div>
+						<div>{{event.venue.name}}</div>
+						<div>{{event.venue.address.city}}, {{event.venue.address.state_province}}</div>
+						<div class="time">{{date.getHours() > 12 ? date.getHours()-12 : date.getHours() }}:{{(date.getMinutes() < 10 ? '0' : 0 )+date.getMinutes()}} {{date.getHours() > 12 && date.getHours() != 24 ? 'pm' : 'am'}}</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<strong class="empty-text clearfix" ng-show="events.length==0">no events planned</strong>
+	</section>

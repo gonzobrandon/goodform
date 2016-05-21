@@ -1,0 +1,32 @@
+<div loading="preloading"></div>
+<form ng-if="user.isLoggedIn" name="albumForm" novalidate class="row" slide-down="!preloading">
+	<div class="col-sm-6">
+		
+		<h4>General</h4>
+		<span class="warn" slide-down="errors.title">{{errors.title}}</span>
+		<div class="form-group">
+			<label>Album Title</label>
+			<input class="form-control" name="title" placeholder="" type="text" ng-model="album.title"  />
+		</div>
+		
+		<h4>Images</h4>
+		<div class="form-group" style="position:relative;">
+			<label>Square Image</label>
+			<div image-wiz ng-model="album.pic_square" orig-width="200" aspect="1" required></div>
+		</div>
+		
+		<div class="form-group">
+			<button ng-click="save()" type="submit" class="btn btn-default">
+				<span ng-hide="loading">SAVE</span>
+				<i class="fa fa-spin fa-sun-o disabled" ng-show="loading" ng-hide="!loading"></i>
+			</button>
+			<button ng-if="onCancel" ng-click="onCancel()" class="btn btn-default">
+				<span ng-hide="loading">CANCEL</span>
+			</button>
+		</div>
+		
+	</div>
+</form>
+<div ng-show="!user.isLoggedIn && !user.loading">
+	Log in ya dummy!
+</div>

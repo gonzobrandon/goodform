@@ -1,0 +1,50 @@
+<div loading="preloading"></div>
+<form ng-if="user.isLoggedIn" name="eventForm" novalidate class="row" slide-down="!preloading">
+	
+	<div class="col-sm-6">
+		
+		<h4>General</h4>
+		<div class="form-group">
+			<label>Event Name</label>
+			<span class="warn" slide-down="errors.title">{{errors.title}}</span>
+			<input class="form-control" name="title" placeholder="" type="text" ng-model="event.title" />
+		</div>
+		<h4>Location</h4>
+		<div class="form-group">
+			<div select-venue model-id="event.venue" meta-timezone="meta.timezone" on-save="saveEvent()" save-trigger="triggerVenueSave" loading-bool="loading"></div>
+		</div>
+		
+	</div>
+	<div class="col-sm-6">
+		<h4>Schedule</h4>
+		
+		<div class="form-group">
+			<label>Start</label>
+			<span class="warn" slide-down="errors.scheduled_start">{{errors.scheduled_start}}</span>
+			<div ui-datetime ng-model="event.scheduled_start"></div>
+		</div>
+		
+		<div class="form-group">
+			<label>End</label>
+			<span class="warn" slide-down="errors.scheduled_end">{{errors.scheduled_end}}</span>
+			<div ui-datetime ng-model="event.scheduled_end"></div>
+		</div>
+		
+		<div class="form-group">
+			<button ng-click="save()" ng-disabled="eventForm.$invalid" type="submit" class="btn btn-default">
+				<span ng-hide="loading">SAVE</span>
+				<i class="fa fa-spin fa-sun-o disabled" ng-show="loading" ng-hide="!loading"></i>
+			</button>
+			<button ng-if="onCancel" ng-click="onCancel()" class="btn btn-default">
+				<span>CANCEL</span>
+			</button>
+		</div>
+		
+		
+		
+	</div>
+</form>
+
+<div ng-show="!user.isLoggedIn && !user.loading">
+	Log in ya dummy!
+</div>

@@ -1,0 +1,40 @@
+<div loading="preloading"></div>
+<form ng-if="user.isLoggedIn" name="trackForm" novalidate class="row" slide-down="!preloading">
+	<div class="col-sm-6">
+		
+		<h4>General</h4>
+		<div class="form-group">
+			<label>Track Title</label>
+			<span class="warn" slide-down="errors.title">{{errors.title}}</span>
+			<input class="form-control" name="title" placeholder="" type="text" ng-model="track.title"  />
+		</div>
+		
+		<h4>Upload File</h4>
+		
+		<input type="file" class="hidden fileUpload" ng-file-select="onFileSelect($files)" ng-file-drop-available="dropSupported=true">
+		
+		<div class="form-group">
+			<label>Track (mp3, flac, or aac)</label>
+			<span class="warn" slide-down="errors.media">{{errors.media}}</span>
+			<span class="ok" slide-down="fileName">{{fileName}}</span>
+			<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drop-hover" class="drop-zone" style="max-width:200px; margin-bottom:10px">
+				<div ng-click="chooseFile()" ng-show="!uploading" style="height:100%; padding:30px 15px;">click <span ng-show="dropSupported">or drop a file here</span> to upload</div>
+				<div ng-show="uploading" style="height:100%; padding:30px 15px;"><a ng-click="upload.abort()">cancel upload</a> {{ uploading }}%<br></div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<button ng-click="save()" type="submit" class="btn btn-default">
+				<span ng-hide="loading">SAVE</span>
+				<i class="fa fa-spin fa-sun-o disabled" ng-show="loading" ng-hide="!loading"></i>
+			</button>
+			<button ng-if="onCancel" ng-click="onCancel()" class="btn btn-default">
+				<span ng-hide="loading">CANCEL</span>
+			</button>
+		</div>
+		
+	</div>
+</form>
+<div ng-show="!user.isLoggedIn && !user.loading">
+	Log in ya dummy!
+</div>

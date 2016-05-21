@@ -1,0 +1,1 @@
+../../../vendor/bower/lib/angular-bootstrap/ui-bootstrap-tpls.js

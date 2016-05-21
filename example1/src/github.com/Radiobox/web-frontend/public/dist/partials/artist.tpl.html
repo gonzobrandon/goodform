@@ -1,0 +1,75 @@
+<div class="content artist_content">
+    <!--BEGIN LIVE PLAYER-->
+	<section class="col-sm-9 live gutter-top" ng-if="liveEvent.is_in_progress">
+		<div class="full blue-border">
+
+			<div class="col-xs-8 full-540">
+				<div class="album-cover full-540">
+					<img ng-src="{{ artist.event_live.pic_small || artist.pic_square }}?width=530" alt="artist.name" class="full" />
+				</div>
+				<div class="coal info full-540">
+					<h1 class="uppercase">{{ events[0].title }}</h1>
+					<h4>{{ events[0].title_from }}</h4>
+					<span class="caption">{{ events[0].caption }}</span>
+				</div>
+			</div>
+			<div class="col-xs-4 uppercase full-540">
+
+			</div>
+			<div class="more-info col-xs-12 padless coal">
+				<div class="status pull-left">
+					<strong class="org">LIVE</strong>
+				</div>
+				<div class="listening pull-left">
+					385 <span class="org"><i class="fa fa-arrow-up"></i></span>
+				</div>
+				<div class="messaliveEvent.is_in_progressliveEvent.is_in_progresses full-540 ng-ticker">
+					<ul>
+						<li ng-repeat="message in artist.event_live.messages track by $index">
+							<span ng-bind-html="message"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-12 controls">
+				<div class="listen-btn pull-left" style="outline: none;">
+                    <i class="fa fa-play" ng-click="playLive()" ng-class="{'fa-pause': player.state == 'PLAYING' && player.getPlaylistIndex() == 0}"></i>
+					<span style="font-weight: 400;">{{playerPosition}}</span>
+				</div>
+	
+				<div class="pull-right col-xs-6 volume full-540">
+					<slider ng-model="player.volume"></slider>
+					<i class="fa fa-volume-{{ player.volume > 49 ? 'up' : (player.volume > 1 ? 'down' : 'off') }} pull-right"></i>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</section>
+    <!--END LIVE PLAYER-->
+
+	<section class="col-sm-3 about gutter-top">
+		<div loading="!artist"></div>
+		<div ng-if="artist">
+			<img ng-src="{{ artist.pic_square }}?width=530" alt="artist.name" class="full" />
+			<h1><a href="/{{artist.slug}}/">{{artist.username}}</a></h1>
+			<h4>{{artist.hometown_address.city}}, {{artist.hometown_address.state_province}}, {{artist.hometown_address.country}}</h4>
+			<div class="social">
+				<button class="pull-left">FOLLOW</button>
+				<button class="pull-right">SHARE <i class="fa fa-caret-down"></i></button>
+				<div class="followers"><a href="/{{artist.slug}}/followers/"><strong class="org">{{artist.subscriber_count || 0}}</strong> Followers</a></div>
+				<div class="clearfix"></div>
+			</div>
+			<div ng-show="artist.description">
+				<h2>ABOUT THE BAND</h2>
+				<p class="linebreaks">{{artist.description}} </p>
+			</div>
+			<h2>TAGS</h2>
+			<ul class="tags clearfix">
+				<li ng-repeat="tag in artist.keywords track by $index">{{tag}}</li>
+			</ul>
+		</div>
+	</section>
+	<div ui-view="subBody" style="min-height:300px;">
+	
+	</div>
+</div>

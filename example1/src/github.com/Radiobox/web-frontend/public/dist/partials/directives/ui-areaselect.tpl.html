@@ -1,0 +1,32 @@
+<div class="area-select" ng-clicktapstart="startDrag($event)">
+	<div ng-transclude>
+	
+	</div>
+	<div class="crop-overlay">    
+		<div ng-style="{left: 0, top:  (areaSelect.top) + '%', right:  (100 - areaSelect.left) + '%', bottom:  (areaSelect.bottom) + '%'}" class="dim">
+			<div style="right:-6px;" class="handle handle-left"><div style="right:0px;"></div></div>
+		</div>    
+		<div ng-style="{right: 0, top:  (areaSelect.top) + '%', left:  (100 - areaSelect.right) + '%', bottom:  (areaSelect.bottom) + '%'}" class="dim">
+			<div style="left:-6px;" class="handle handle-right"><div style="left:0px;"></div></div>
+		</div>    
+		<div ng-style="{top: 0, bottom:  (100 - areaSelect.top) + '%', right:  (areaSelect.right) + '%', left:  (areaSelect.left) + '%'}" class="dim">
+			<div style="bottom:-6px;" class="handle handle-top"><div style="bottom:0px;"></div></div>
+		</div>    
+		<div ng-style="{bottom: 0, top:  (100 - areaSelect.bottom) + '%', right:  (areaSelect.right) + '%', left:  (areaSelect.left) + '%'}" class="dim">
+			<div style="top:-6px;" class="handle handle-bottom"><div style="top:0px;"></div></div>
+		</div>
+		    
+		<div ng-style="{top: 0, bottom:  (100 - areaSelect.top) + '%', right:  (100 - areaSelect.left) + '%', left: 0}" class="dim">
+			<div style="bottom:-6px; right:-6px" class="handle handle-corner handle-top-left"><div style="bottom:0px; right:0px"></div></div>
+		</div>    
+		<div ng-style="{bottom: 0, top:  (100 - areaSelect.bottom) + '%', right:  (100 - areaSelect.left) + '%', left: 0}" class="dim">
+			<div style="top:-6px; right:-6px;" class="handle handle-corner handle-bottom-left"><div style="top:0px; right:0px;"></div></div>
+		</div>    
+		<div ng-style="{top: 0, bottom:  (100 - areaSelect.top) + '%', right: 0, left:  (100 - areaSelect.right) + '%'}" class="dim">
+			<div style="bottom:-6px; left: -6px;" class="handle handle-corner handle-top-right"><div style="bottom:0px; left:0px;"></div></div>
+		</div>    
+		<div ng-style="{bottom: 0, top:  (100 - areaSelect.bottom) + '%', right: 0, left:  (100 - areaSelect.right) + '%'}" class="dim">
+			<div style="top:-6px; left:-6px;" class="handle handle-corner handle-bottom-right"><div style="top:0px; left:0px;"></div></div>
+		</div>
+	</div>
+</div>

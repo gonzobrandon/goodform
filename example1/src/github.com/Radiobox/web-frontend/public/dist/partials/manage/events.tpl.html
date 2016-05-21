@@ -1,0 +1,32 @@
+<div class="col-sm-12" loading="loadingArtist"></div>
+<div class="col-sm-12" ng-hide="loadingArtist">
+	<h1>{{artist.username}}</h1>
+	<h5 class="pull-left">EVENTS</h5>
+	<div class="pull-right">
+		<a href="javascript:void(0)" ng-click="addNew = !addNew">New event</a>
+	</div>
+	<ul class="ruled clear add-new" slide-down="addNew">
+		<li>
+			<div class="col-xs-12" form-event on-cancel="addNew = !addNew" on-create="pushNew($response)" artist-id="artist.id"></div>
+			<div class="clear"></div>
+		</li>
+	</ul>
+	<ul class="ruled clear" slide-down="!loadingList">
+		<li ng-repeat="event in events">
+			<div class="pull-right">
+				| <a href="#" ng-click="toggleEditor($index)">edit</a>
+			</div>
+			{{event.title}}
+			<ul class="ruled clear add-new" slide-down="editorSlide[$index]" ng-if="editorIf[$index]" style="margin: 6px 0 -6px;">
+				<li>
+					<div class="col-xs-12" form-event model-id="event.id" on-cancel="toggleEditor($index)" ng-model="events[$index]" on-update="toggleEditor($index)"></div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</li>
+		<li ng-if="events.length == 0">Nothing Here. Start by clicking "New event"</li>
+	</ul>
+	<ul ng-show="loadingList" class="ruled clear">
+		<li loading="loadingList"></li>
+	</ul>
+</div>

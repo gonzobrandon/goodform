@@ -1,0 +1,32 @@
+<div class="col-sm-12">
+	<h1>ARTISTS</h1>
+	<div class="pull-right">
+		<a href="javascript:void(0)" ng-click="addNew = !addNew">New artist</a>
+	</div>
+	<ul class="ruled clear add-new" slide-down="addNew">
+		<li>
+			<div class="col-xs-12" form-artist on-cancel="addNew = !addNew" on-create="pushNew($response)"></div>
+			<div class="clear"></div>
+		</li>
+	</ul>
+	<ul class="ruled clear" slide-down="!loadingList">
+		<li ng-repeat="artist in artists">
+			<div class="pull-right">
+				| <a ng-href="/manage/artist/{{artist.id}}/events/">events</a> |
+				<a ng-href="/manage/artist/{{artist.id}}/albums/">albums</a> |
+				<a href="#" ng-click="toggleEditor($index)">edit</a>
+			</div>
+			<a ng-href="/{{artist.slug}}/">{{artist.username}}</a>
+			<ul class="ruled clear add-new" slide-down="editorSlide[$index]" ng-if="editorIf[$index]" style="margin: 6px 0 -6px;">
+				<li>
+					<div class="col-xs-12" form-artist model-id="artist.id" on-cancel="toggleEditor($index)" ng-model="artists[$index]" on-update="toggleEditor($index)"></div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</li>
+		<li ng-if="artists.length == 0">Nothing Here. Start by clicking "New artist"</li>
+	</ul>
+	<ul ng-show="loadingList" class="ruled clear">
+		<li loading="loadingList"></li>
+	</ul>
+</div>

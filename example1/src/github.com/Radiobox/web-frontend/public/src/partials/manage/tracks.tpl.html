@@ -1,0 +1,34 @@
+<div class="col-sm-12" loading="loadingArtist"></div>
+<div class="col-sm-12" ng-hide="loadingArtist">
+	<h1>{{album.title}}</h1>
+	<h5 class="pull-left">TRACKS</h5>
+	<div class="pull-right">
+		<a href="javascript:void(0)" ng-click="addNew = !addNew">New track</a>
+	</div>
+	<ul class="ruled clear add-new" slide-down="addNew">
+		<li>
+			<div class="col-xs-12" form-track on-cancel="addNew = !addNew" on-create="pushNew($response)" album-id="album.id" artist-id="album.album_artist.id"></div>
+			<div class="clear"></div>
+		</li>
+	</ul>
+	<div class="full">
+		<ul class="ruled clear" style="position:relative;" drag-sort="tracks" on-change="changeSort()">
+			<li class="drag-sort-row" ng-repeat="track in tracks" index="{{$index}}">
+				<div class="pull-right">
+					| <a href="#" ng-click="toggleEditor($index)">edit</a>
+				</div>
+				<button type="button" class="drag-sort-button"><i class="fa fa-arrows-v"></i></button> {{track.title}}
+				<ul class="ruled clear add-new" slide-down="editorSlide[$index]" ng-if="editorIf[$index]" style="margin: 6px 0 -6px;">
+					<li>
+						<div class="col-xs-12" form-track model-id="track.id" on-cancel="toggleEditor($index)" ng-model="tracks[$index]" on-update="toggleEditor($index)"></div>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</li>
+			<li ng-if="tracks.length == 0">Nothing Here. Start by clicking "New track"</li>
+		</ul>
+	</div>
+	<ul ng-show="loadingList" class="ruled clear">
+		<li loading="loadingList"></li>
+	</ul>
+</div>

@@ -1,0 +1,130 @@
+<div class="content artist_content">
+	<section class="col-sm-9 live gutter-top" ng-if="artist.event_live.is_in_progress">
+
+		<div class="full blue-border">
+
+			<div class="col-xs-8 full-540">
+				<div class="album-cover full-540">
+					<img ng-src="{{artist.pic_square}}" alt="artist.name" class="full" />
+				</div>
+				<div class="coal info full-540">
+					<h1 class="uppercase">{{ artist.event_live.title }}</h1>
+                    <h4>Live from {{ artist.event_live.title_from }}</h4>
+					<!--<span class="caption">{{ artist.event_live.caption }}</span>-->
+	                <br/>
+				</div>
+			</div>
+			<div class="col-xs-4 uppercase full-540">
+	<!--
+				<strong class="venue">Irving Plaza</strong>
+				<strong class="location">Los Angeles, CA</strong>
+	-->
+				<!--<div class="social">-->
+					<!--<button class="pull-left">LIKE</button>-->
+					<!--<button class="pull-right">SHARE <i class="fa fa-caret-down"></i></button>-->
+				<!--</div>-->
+			</div>
+			<div class="more-info col-xs-12 padless coal">
+				<div class="status pull-left">
+					<strong class="org">LIVE</strong>
+				</div>
+				<div class="listening pull-left">
+					<span class="org"><i class="fa fa-arrow-up"></i></span>
+				</div>
+				<div class="messages full-540 ng-ticker">
+					<ul>
+						<li ng-repeat="message in artist.event_live.messages track by $index">
+							<span ng-bind-html="message"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-12 controls">
+				<div class="listen-btn pull-left" style="outline: none;">
+	                <i class="fa fa-play" ng-click="playLive()" ng-class="{'fa-pause': player.state == 'PLAYING' && player.getPlaylistIndex() == 0}"></i>
+	                <span style="font-weight: 400;">{{playerPosition}}</span>
+	            </div>
+	
+	            <div class="pull-right col-xs-6 volume full-540">
+					<slider ng-model="player.volume"></slider>
+					<i class="fa fa-volume-{{ player.volume > 49 ? 'up' : (player.volume > 1 ? 'down' : 'off') }} pull-right"></i>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+
+	</section>
+	<section ng-if="artist" class="col-sm-3 about gutter-top">
+		<img ng-src="{{artist.pic_square}}" alt="artist.name" class="full" />
+
+		<h1><a href="/{{artist.slug}}/">{{artist.username}}</a></h1>
+		<h4>{{artist.hometown_address.readable}}</h4>
+		<div class="social">
+			<button class="pull-left">FOLLOW</button>
+			<button class="pull-right">SHARE <i class="fa fa-caret-down"></i></button>
+			<div class="followers"><a href="/{{artist.slug}}/followers/"><strong class="org">{{artist.subscriber_count}}</strong> Followers</a></div>
+			<div class="clearfix"></div>
+		</div>
+		<h2>ABOUT THE BAND</h2>
+		<p class="linebreaks">{{artist.description}} </p>
+		
+		<h2>TAGS</h2>
+		<ul class="tags clearfix">
+			<li ng-repeat="tag in artist.keywords track by $index">{{tag}}</li>
+		</ul>
+	</section>
+	<div ui-view="subBody">
+		<section class="col-sm-6 col-xs-9 sub-body gutter-top">
+			<h2>TRACKS AND SHOWS</h2>
+			<ul class="album-list">
+				<li ng-repeat="album in artist.albums track by $index">
+					<div class="cover">
+						<img class="full" ng-src="{{album.pic_square||artist.pic_square}}" alt="" />
+						<div class="social">
+							<button>SHARE <i class="fa fa-caret-down"></i></button>
+						</div>
+					</div>
+					<div>
+						<div class="title coal">
+							<span class="strong uppercase">{{album.title}}</span>
+							<span class="count">{{album.tracks.length}} SONGS</span>
+							<!--<span class="location">Venue Name City, St</span>-->
+						</div>
+						<ul class="tracks">
+							<li ng-init="x = 2" ng-repeat="track in album.tracks track by $index">
+								<div class="pull-left strong">{{$index+1}}.</div>
+								<rating state-on="'open'" state-off="'solid'" max="10" value="x" class="pull-right rating"></rating>
+								<div ng-click="playTrack(track.playlistIndex)" class="name">{{track.title}}</div>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+			</ul>
+		</section>
+		<section class="col-md-3 col-xs-8 sidebar gutter-top">
+			<h2>SCHEDULE</h2>
+			<ul class="schedule">
+				<li ng-repeat="event in artist.schedule track by $index">
+					<div class="table-row">
+				    	<div class="calDate" ng-init="date = Date(event.date);">
+			<!-- 	    		<img class="cal" src="/img/calDate.png" /> -->
+				    		<div class="overlay">
+					    		<span class="month">{{ months[date.getMonth()-1] }}</span>
+					    		<span class="day">{{(date.getDate() < 10 ? '0' : 0 )+date.getDate()}}</span>
+				    		</div>
+				    	</div>
+				    	<div class="details">
+				    		<div><strong>LIVE SHOW</strong></div>
+				    		<div>{{event.venue_name}}</div>
+				    		<div>{{event.location_address.city}}, {{event.location_address.state}}</div>
+					    		<span class="time">{{date.getHours() > 12 ? date.getHours()-12 : date.getHours() }}:{{(date.getMinutes() < 10 ? '0' : 0 )+date.getMinutes()}} {{date.getHours() > 12 && date.getHours() != 24 ? 'PM' : 'AM'}}</span>
+				    	</div>
+				    	<div class="clearfix"></div>
+				    </div>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head id="head">
+    <meta charset="UTF-8">
+    <title>Radiobox</title>
+
+    <!--Require JS script included at the end of <body> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <meta name="description" content="Welcome to Radiobox">
+
+    <!-- build:template
+    <link rel="stylesheet" href="/css/<%= filehash %>.css">
+    /build -->
+
+    <!-- build:remove -->
+    <link id="css-bootstrap" rel="stylesheet" href="/css/bootstrap.css">
+    <link id="css-bootstrap" rel="stylesheet" href="/css/radiobox-icons.css">
+    <link id="css-font-awesome" rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <!-- /build -->
+
+
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="wrapper">
+        <header class="header" autoscroll="false" ui-view="header">
+
+
+            <div class="headerCont">
+                <div class="logo">
+                    <a class="boxy" href="/"><span class="icon" data-icon="&#xe003;"></span></a>
+                    <a href="/"><img class="logoTop" src="/img/logo.svg" alt="Radiobox" /></a>
+                </div>
+
+            </div>
+
+            <div class="pull-left" style="padding:15px 0 0 5px; font-size:19px; font-weight:500;">
+                beta
+            </div>
+
+
+
+        </header>
+
+        <div class="main-content" autoscroll="true" ui-view="content">
+
+            <div style="width: 100px; height: 100px;margin-left: auto;margin-right: auto; text-align: center;">
+                <i class="fa fa-spin fa-sun-o disabled fa-2x"></i>
+                <br/>
+                Loading...
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <footer class="footer" autoscroll="false" ui-view="footer"></footer>
+
+</div>
+
+<!-- MAIN JWPLAYER -->
+<div style="width: 1px; height: 1px; position: absolute; top: -9999px; left: -9999px;">
+    <div id="mainPlayer"></div>
+</div>
+
+    <!-- build:remove -->
+    <script type="application/javascript" data-main="/js/main.js" src="/js/symlinks/require.js"></script>
+    <!-- /build -->
+
+    <!-- build:template
+    <script type="application/javascript" src="/js/<%= filehash %>.js"></script>
+    /build -->
+
+</body>
+</html>

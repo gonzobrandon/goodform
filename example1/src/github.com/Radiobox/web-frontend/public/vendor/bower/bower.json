@@ -1,0 +1,23 @@
+{
+   "name": "Radiobox",
+   "version": "0.1",
+   "main": "index.html",
+   "ignore": [
+     "**/.*"
+   ],
+   "dependencies": {
+     "angular": "latest",
+     "angular-animate": "latest",
+     "angular-bootstrap": "latest",
+     "angular-cookies": "latest",
+     "angular-sanitize": "latest",
+     "angular-ui-router": "latest",
+     "bootstrap": "latest",
+     "font-awesome": "latest",
+     "ng-file-upload": "latest",
+     "requirejs": "latest",
+     "requirejs-domready": "latest",
+     "moment": "latest",
+     "moment-timezone": "latest"
+   }
+}

@@ -1,0 +1,1 @@
+../../../vendor/bower/lib/ng-file-upload/angular-file-upload-shim.js

@@ -1,0 +1,1 @@
+../../../vendor/bower/lib/angular-animate/angular-animate.js

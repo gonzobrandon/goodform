@@ -1,0 +1,1 @@
+../../../vendor/bower/lib/angular-ui-router/release/angular-ui-router.js

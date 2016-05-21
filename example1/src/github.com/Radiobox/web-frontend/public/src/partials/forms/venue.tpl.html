@@ -1,0 +1,53 @@
+<div loading="preloading"></div>
+<form ng-if="user.isLoggedIn" name="venueForm" novalidate class="row" slide-down="!preloading">
+	<div class="col-sm-6">
+		
+		<h4>General</h4>
+		<span class="warn" slide-down="errors.name">{{errors.name}}</span>
+		<div class="form-group">
+			<label>Venue Name</label>
+			<input class="form-control" name="name" placeholder="" type="text" ng-model="venue.name"  />
+		</div>
+<!--
+		<div class="form-group">
+			<label>About Blurb</label>
+			<textarea class="form-control" name="venue_blurb" ng-model="venue.venue_blurb"></textarea>
+		</div>
+		<div class="form-group">
+			<label>Contact Email</label>
+			<input class="form-control" name="email" placeholder="" type="email" ng-model="venue.email" />
+		</div>
+		<div class="form-group">
+			<label>Phone Number</label>
+			<input class="form-control" name="phone" placeholder="" type="text" ng-model="venue.phone" />
+		</div>
+		<div class="form-group">
+			<label>Website</label>
+			<input class="form-control" name="url" placeholder="" type="text" ng-model="venue.url" />
+		</div>
+-->
+<!--
+	</div>
+	<div class="col-sm-6">
+-->
+		
+		<h4>Location</h4>
+		
+		<span class="warn" slide-down="errors.address">{{errors.address}}</span>
+		<div address ng-model="venue.address" ></div>
+		
+		<div class="form-group">
+			<button ng-click="save()" ng-disabled="venueForm.$invalid" type="submit" class="btn btn-default">
+				<span ng-hide="loading">SAVE</span>
+				<i class="fa fa-spin fa-sun-o disabled" ng-show="loading" ng-hide="!loading"></i>
+			</button>
+			<button ng-if="onCancel" ng-click="onCancel()" class="btn btn-default">
+				<span ng-hide="loading">CANCEL</span>
+			</button>
+		</div>
+		
+	</div>
+</form>
+<div ng-show="!user.isLoggedIn && !user.loading">
+	Log in ya dummy!
+</div>

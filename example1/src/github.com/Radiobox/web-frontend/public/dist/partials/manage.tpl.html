@@ -1,0 +1,17 @@
+<div class="br"></div>
+<div class="content">
+	<div ng-if="loggedIn" class="manage-panel">
+		<div class="col-sm-12">
+			<a href="/manage/">User</a> |
+			<a href="/manage/artists/">Artists</a>
+<!-- 			<a href="/manage/venues/">Venues</a> -->
+		</div>
+		
+		<div ui-view="subBody" autoscroll="false">
+		
+		</div>
+	</div>
+	<div ng-if="!loggedIn" class="col-sm-12">
+		Log in to reach your account management
+	</div>
+</div>

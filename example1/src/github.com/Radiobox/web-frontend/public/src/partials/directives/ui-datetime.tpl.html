@@ -1,0 +1,15 @@
+<div ng-change="changed()" ng-model="ngModel" class="row">
+	<div class="timepicker pull-left gutter">
+		<timepicker hour-step="1" minute-step="5" show-meridian="true"></timepicker>
+		<div class="br"></div>
+	</div>
+	<div class="gutter datepicker">
+		<div class="input-group" style="min-width:270px;">
+<!-- 			<datepicker min="minDate" show-weeks="showWeeks"></datepicker> -->
+              <input ng-model="ngModel" type="text" class="form-control" show-button-bar="false" show-weeks="false" datepicker-popup="fullDate" is-open="dateOpened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="openDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+		</div>
+	</div>
+</div>

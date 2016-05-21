@@ -1,0 +1,341 @@
+<div class="jumbotron" style="background:#293037;">
+	<div class="content">
+		<img class="full" src="/img/logo_jumbotron.jpg" alt="Radiobox" />
+	</div>
+</div>
+
+<div class="br-float"></div>
+
+<div class="content home-news">
+	<div class="col-md-8">
+		<section class="full">
+			<carousel interval="featuredArtistsInterval">
+				<slide ng-repeat="slide in featuredArtists" active="slide.active">
+	   			<a href={{slide.link}}>
+						<img class="full" src={{slide.image}} alt={{slide.title}} />
+						<div class="clearfix"></div>
+					</a>
+				</slide>
+			</carousel>
+		</section>
+	</div>
+
+	<div class="col-xs-12 visible-sm visible-xs">
+		<div class="hr"></div>
+	</div>
+
+	<div class="col-md-4 col-sm-6">			
+		<h2 class="oneline">Featured Artist</h2>
+		<carousel interval="upcomingInterval" class="dark">
+			<slide ng-repeat="slide in upcoming" active="slide.active">
+				
+				<div class="padded text-left">
+					
+					<!-- PLAY BUTTON AND STATS -->
+					<div>
+						<div class="col-xs-4 padless">
+							<a href="/drunkenhearts">
+								<img src="/img/temp/cover_cool-band-ln.png" alt="Album cover of cool band name" class="full" />
+							</a>
+						</div>
+						<div class="col-xs-8 padless statsBox">
+							<h5 class="oneline">{{slide.artist}}</h5>
+							<div class="oneline">{{slide.venue}}</div>
+							<div class="oneline">{{slide.location}}</div>
+							<div>&nbsp;</div>
+							<div class="time">9:00PM <span class="time-zone">(MDT)</span></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="br-float"></div>
+					<div class="col-xs-12 padless">
+						<button class="strong">FOLLOW</button>
+						<button class="strong">SHARE</button>
+						<p style="overflow:hidden; height: 4.2em;">The Drunken Hearts are by their own reckoning a deeply Colorado band, and their sound is further evidence that the six-piece band comes from the high country. It’s a rock ...</p>
+                        <a href="/drunkenhearts"><p class="warn" style="margin-top:5px;">Read more&gt;&gt;</p></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</slide>
+		</carousel>
+	</div>
+	
+	<div class="col-sm-12 hidden-sm">
+		<div class="hr"></div>
+	</div>
+	
+<!-- 	START TRIPLE COLS -->
+	
+
+	<a href="/tumbleweedwanderers">
+	<div class="col-md-4 col-sm-6">
+		<div class="grey-border clear">
+			<h2 class="dark">DONT MISS </h2>
+			<img src="/img/temp/news1.png" class="full" />
+			<div style="padding:10px;">
+				<h2>Tumbleweed Wanderers</h2>
+				<p style="overflow:hidden; height: 5.7em;">Oakland, California’s Tumbleweed Wanderers combine soul, folk, and rock and roll to create a hugely dynamic musical experience. They weave through their shows with smooth transitions, bringing the listener from dark chaotic banjo-rock, through intimate acoustic harmonies, to energetic explosions of soul.</p>
+				<p class="warn">Tumbleweed Wanderers&gt;&gt;</p>
+			</div>
+		</div>
+	</div>
+    </a>
+	
+	<div class="col-xs-12 visible-xs">
+		<div class="br-float"></div>
+	</div>
+	<div class="col-xs-12 visible-sm">
+		<div class="hr"></div>
+	</div>
+
+    <div class="col-md-4 col-sm-6">
+        <div class="grey-border clear">
+            <h2 class="dark">SUMMER FESTIVAL</h2>
+            <img src="/img/temp/news2.png" class="full" />
+            <div style="padding:10px;">
+                <h2>YarmonyGrass</h2>
+                <p style="overflow:hidden; height: 5.7em;">YarmonyGrass calls Rancho Del Rio home. Located on the upper Colorado River along the Colorado River Headwaters Scenic Byway between Bond and Kremmling, CO. Radiobox will be streaming the Festival Live in August 2014.</p>
+                <p class="warn">(Lineup coming soon)</p>
+            </div>
+        </div>
+    </div>
+
+	<div class="col-xs-12 visible-xs">
+		<div class="br-float"></div>
+	</div>
+	
+	<div class="col-md-4 col-sm-6">
+		<div class="grey-border clear">
+			<h2 class="dark">RAW RUSS</h2>
+			<img src="/img/temp/news3.png" class="full" />
+			<div style="padding:10px;">
+				<h2>RAW RUSS</h2>
+				<p style="overflow:hidden; height: 5.7em;">RAW RUSS is the musical project of graphic artist BERK VISUAL. Originally a drummer RAW RUSS has been studying turntablism since the mid 90s and has shared the stage with BREAK SCIENCE, KRSone, Redman, Methodman, Hieroglyphics, Pnuma Trio, Two Fresh, Lazer Sword Opiou, Eliot Lipp, Prefuse 73, MIMOSA, Tokimonsta, Orchard Lounge and many more</p>
+				<p class="warn">(Artist Page Soon)</p>
+			</div>
+		</div>
+	</div>
+
+	
+<!-- 	END TRIPLE COLS -->
+	
+	<div class="clearfix"></div>
+	<div class="col-xs-12">
+		<div class="hr"></div>
+	</div>
+</div>
+
+<!-- START OUR PICKS -->
+
+<!--<div class="content picks" ng-init="picks = [1,2,3,4,5,6]">-->
+	<!--<div class="home-about">-->
+		<!--<div class="br-float"></div>-->
+		<!--<h1>OUR PICKS</h1>-->
+	<!--</div>-->
+	<!--<div class="br-float"></div>-->
+	<!--<div class="br-float"></div>-->
+	<!--<div class="col-md-2 col-sm-2 col-xs-4 col-xxs-6" ng-repeat="pick in picks">-->
+		<!--<img src="http://speradev.com:8080/api/images/68363307-88d9-4340-a48c-d2ea9b9b2b93.jpg" class="full" />-->
+		<!--<h2 class="oneline">Band Name</h2>-->
+		<!--<div><strong>City, State</strong></div>-->
+		<!--<p style="overflow:hidden; height: 5.7em;">Open Sans Light 11pt - Leading 18pt  polaroid accusamus gentrify Terry Richardson fingerstache Godard mustache odio forage raw denim fanny pack. Consequat fap elit boom shacka seitan cray stumptown.</p>-->
+		<!--<p class="warn">Read more&gt;&gt;</p>-->
+		<!--<div class="br-float"></div>-->
+		<!--<div class="br-float"></div>-->
+		<!---->
+	<!--</div>-->
+	<!--<div class="clearfix"-->
+	<!--<div class="col-xs-12">-->
+		<!--<div class="hr"></div>-->
+	<!--</div>-->
+<!--</div>-->
+
+<!-- END TOP PICKS -->
+
+<div class="content col-xs-12">
+	<div class="home-about clear">
+		<div class="br-float"></div>
+		<h1 style="font-size: 2.6em;">
+			ARTISTS, GET ON THE LIST 
+			<div class="show-540" style="display:none;"></div>
+			<span style="position:relative; top: 20px; line-height: 1.1em">
+				<span style="color:#43a2a9;" data-icon="" class="icon"></span>
+				<span style="position: absolute; bottom: 3.5em; left: 1.5em; display: block; color: #FFF; font-size: .4em; font-weight: 600; transform:rotate(5deg); -ms-transform:rotate(5deg); -webkit-transform:rotate(5deg);">BETA</span>
+			</span>
+		</h1>
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		<div class="pull-left full" slide-down="!betaSubmitted">
+			<div class="content clear" style="width:860px">
+				<div class="form-group col-sm-6">
+					<input class="form-control" type="text" placeholder="Artist Name" ng-model="betaArtist.artist_name" />
+				</div>
+				<div class="form-group col-sm-6">
+					<div class="submitText">
+						<input type="text" placeholder="Your email" class="form-control" ng-model="betaArtist.email">
+						<button class="btn" ng-click="signupBeta()">
+							<i ng-show="!betaSubmitting" class="fa fa-envelope-o"></i>
+							<span loading="betaSubmitting"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 pull-left" slide-down="betaSubmitted">
+			<p>Thank you for your interest. We will contact you in the near future.</p>
+		</div>
+		
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		<div class="content clear">
+
+			<p>We've got a great line-up of opening acts during our beta release.  Help us test our new features and you can get first access to live shows, new music, and more.  Sign up for free, and we'll send you an invite!</p>
+		</div>
+	</div>
+	<div class="br-float"></div>
+	<div class="br-float"></div>
+	<div class="hr"></div>
+	<div class="br-float"></div>
+	<div class="home-about">
+		<h1>
+			WHAT IS RADIOBOX?
+		</h1>
+		<div class="col-sm-4">
+			<span class="icon-about-repost" style="color:#516070;"></span>
+			<h2>SUPPORT & PROMOTE</h2>
+		</div>
+		<div class="col-sm-4">
+			<span class="icon-about-murica" style="color:#A1CEBB;"></span>
+			<h2>FOLLOW TOURS</h2>
+		</div>
+		<div class="col-sm-4">
+			<span class="icon-about-boxyphones" style="color:#43A2A9;"></span>
+			<h2>ENJOY SHOWS</h2>
+		</div>
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		<div class="content clear" >
+			<p>Radiobox takes free, high quality, real time live audio streaming to a new level by allowing fans to support, promote, and even pay their favorite musicians…just by following their tours and enjoying live music on our simple platform.  Did we mention that it's live… and free?</p>
+		</div>
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		
+	</div>
+	
+	<div class="hr"></div>
+		
+</div>
+<div class="clearfix"></div>
+<div style="background:#11160f;">
+	<div class="content" style="position: relative; min-height: 400px; background:url('/img/jumbotron2.jpg') right no-repeat; padding: 30px 20px;">
+		<div class="col-sm-8 col-md-6 pull-right" style="background:#FFF; opacity:.8; padding:12px;">
+			<div class="home-about" style="border: 4px solid #516070; text-align: left; padding:12px;">
+				<h1>SUPPORT ARTISTS</h1>
+				<p>So, you can't make the show but still want to support your favorite musician?  You're awesome for that, and here are a few ways you can help: Log in with Facebook and share the live show with your friends, tweet, drop a buck in the artist's virtual tip jar, or buy a tracks, albums, archived live shows and even merchandise from the artist's page…or all of the above.  We're making it easy for you, so give them all the love you can.</p>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="content">
+	<div class="col-xs-12">
+		<div class="hr"></div>
+		<div class="br-float"></div>
+		<div class="home-about">
+			<h1>LIVECASTING</h1>
+			<div class="col-sm-4">
+				<span class="icon-about-dots" style="color:#516070;"></span>
+				<h2>SCALABLE</h2>
+				<p>Our livecast system is scaled to handle from a few dozen, to hundreds of thousands of listeners.  </p>
+			</div>
+			<div class="col-sm-4">
+				<span class="icon-about-bitworld" style="color:#516070;"></span>
+				<h2>GLOBAL</h2>
+				<p>With servers positioned around the globe, you can rest assured that you'll never miss a show again.</p>
+			</div>
+			<div class="clear visible-xs"></div>
+			<div class="col-sm-4">
+				<span class="icon-about-devices" style="color:#5eb1af;"></span>
+				<h2>MULTI-PLATFORM</h2>
+				<p>Access live shows with your desktop, laptop, iPad or iPhone.  Android support is coming soon.</p>
+			</div>
+			<div class="clear hidden-xs"></div>
+			<div class="col-sm-4">
+				<span class="icon-about-stream" style="color:#516070;"></span>
+				<h2>HIGH QUALITY</h2>
+				<p>Experience the next best thing to a live show with high bitrate streaming up to 320 kbps.</p>
+			</div>
+			<div class="clear visible-xs"></div>
+			<div class="col-sm-4">
+				<span class="icon-about-archive" style="color:#516070;"></span>
+				<h2>ARCHIVABLE</h2>
+				<p>Miss the show?  No problem.  All shows can be archived in lossless format on the artist's page for your future listening pleasure.</p>
+			</div>
+			<div class="col-sm-4">
+				<span class="icon-about-share" style="color:#5eb1af;"></span>
+				<h2>SHARE</h2>
+				<p>Help promote the live performance by sharing with friends on Facebook and Twitter.  The band will love you for it.</p>
+			</div>
+		</div>
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		<div class="hr"></div>
+	</div>
+</div>
+<div class="clearfix"></div>
+<div style="background:url('/img/jumbotron3.jpg') center no-repeat #555;">
+	<div class="content" style="width:930px; padding: 20px 0;">
+		<div class="col-sm-5 col-xs-4 hidden-540 paddless">
+			<img ng-src="/cdn/social-web.png" class="full" />
+		</div>
+		<div class="col-sm-7 col-xs-8 full-540 home-about" style="text-align: left;">
+			<h1 style="color: #FCF9F5; font-size: 1.8em">SOCIAL MEDIA</h1>
+			<p style="color: #FCF9F5;">For an emerging artist, having a presence on Facebook and Twitter can be as important as having a name.  Radiobox integrates seamlessly with Facebook, and you can even choose to receive instant alerts when a band you are following is going live.  Share the show on Facebook and Twitter and you can feel good knowing that you just helped your favorite band pay for their next tour.  Seriously, just listen and tell your friends.  It's that easy.  </p>
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="content">
+	<div class="col-xs-12">
+	
+		<div class="hr"></div>
+		<div class="br-float"></div>
+		<div class="home-about content" style="width: 870px;">
+			<h1>GET MUSIC</h1>
+			<div class="clearfix clear"></div>
+			<div class="col-sm-6">
+				<span class="icon-about-cassette home-icon pull-left full-420" style="color:#516070;"></span>
+				<h2 style="padding-top:90px;">STREAM TRACKS</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="col-sm-6">
+				<span class="icon-about-tower home-icon pull-right full-420" style="color:#43a2a9;"></span>
+				<h2 style="padding-top:90px;">LIVE PERFORMANCES</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="col-sm-6">
+				<span class="icon-about-cd home-icon pull-left full-420" style="color:#5eb1af;"></span>
+				<h2 style="padding-top:90px;">FULL LENGTH ALBUMS</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="col-sm-6">
+				<span class="icon-about-sheet home-icon pull-right full-420" style="color:#a1cebb;"></span>
+				<h2 style="padding-top:90px;">ARCHIVED SHOWS</h2>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="br-float"></div>
+		<div class="br-float"></div>
+		<div class="hr"></div>
+		
+		<div class="home-about">
+			<div class="br-float"></div>
+			<h1>GET RADIOBOX</h1>
+			<div>(it's free)</div>
+			
+			<button class="final" ng-click="openSignup()">SIGN UP</button>
+		</div>
+		
+	</div>
+</div>

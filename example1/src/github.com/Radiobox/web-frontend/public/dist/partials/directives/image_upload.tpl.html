@@ -1,0 +1,23 @@
+<div class="image-wiz">
+
+	<input type="file" class="hidden" ng-file-select="onFileSelect($files)" >
+	
+	<div area-select="crop" aspect="{{aspect}}" class="image-crop" ng-show="preview && imageLoaded">
+		<img style="width:100%;" ng-src="{{ preview }}" />
+	</div>
+	<div ng-show="!imageLoaded && preview" style="width:100%; padding:20px; text-align:center;">
+		<i class="fa fa-spin fa-sun-o"></i>
+	</div>
+	
+	<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drop-hover" class="drop-zone">
+		<div ng-click="chooseFile()" style="padding:0 15px; max-height:100%;" ng-show="!preview && !uploading">click <span ng-show="dropSupported">or drop a file here</span> to upload</div>
+		
+		<div ng-show="uploading" style="padding:0 15px; max-height:100%;"><a ng-click="upload.abort()">cancel upload</a> {{ uploading }}%<br></div>
+		
+		<div ng-click="chooseFile()" style="padding:5px 15px; height:100%;" ng-show="preview && !uploading">change image</span></div>
+	</div>
+	<div class="br"></div>
+	<button type="button" class="btn full" ng-click="applyCrop();" ng-show="preview && imageLoaded" ng-class="{ 'warn-border': !cropApplied, 'ok-border': cropApplied }">Apply Crop</button>
+	
+
+</div>

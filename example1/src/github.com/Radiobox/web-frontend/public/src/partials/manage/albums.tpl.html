@@ -1,0 +1,33 @@
+<div class="col-sm-12" loading="loadingArtist"></div>
+<div class="col-sm-12" ng-hide="loadingArtist">
+	<h1>{{artist.username}}</h1>
+	<h5 class="pull-left">ALBUMS</h5>
+	<div class="pull-right">
+		<a href="javascript:void(0)" ng-click="addNew = !addNew">New album</a>
+	</div>
+	<ul class="ruled clear add-new" slide-down="addNew">
+		<li>
+			<div class="col-xs-12" form-album on-cancel="addNew = !addNew" on-create="pushNew($response)" artist-id="artist.id"></div>
+			<div class="clear"></div>
+		</li>
+	</ul>
+	<ul class="ruled clear" slide-down="!loadingList">
+		<li ng-repeat="album in albums">
+			<div class="pull-right">
+				| <a href="/manage/album/{{album.id}}/tracks/">tracks</a> |
+				<a href="#" ng-click="toggleEditor($index)">edit</a>
+			</div>
+			{{album.title}}
+			<ul class="ruled clear add-new" slide-down="editorSlide[$index]" ng-if="editorIf[$index]" style="margin: 6px 0 -6px;">
+				<li>
+					<div class="col-xs-12" form-album model-id="album.id" on-cancel="toggleEditor($index)" ng-model="albums[$index]" on-update="toggleEditor($index)"></div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</li>
+		<li ng-if="albums.length == 0">Nothing Here. Start by clicking "New album"</li>
+	</ul>
+	<ul ng-show="loadingList" class="ruled clear">
+		<li loading="loadingList"></li>
+	</ul>
+</div>
