@@ -6,7 +6,9 @@ I'll walk through 3 examples of what I consider good form coding. Everything is 
 
 #### View this project at [http://radiobox.gonzobrandon.com/](http://radiobox.gonzobrandon.com/)
 
-#### See the source for everything at [http://github.com/goodform/example1/](http://github.com/goodform/example1/)
+#### See the source for everything at [https://github.com/gonzobrandon/goodform/tree/master/example1](https://github.com/gonzobrandon/goodform/tree/master/example1). 
+
+(see go/src/github.com/Radiobox path for most of my original work)
 
 This project was called Radiobox. I was a co-founder and the head developer of this project. The idea was a live-streaming backend delievered via AngularJS on desktop and a native iOS app on mobile.
 
