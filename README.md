@@ -449,7 +449,7 @@ I thoroughly enjoy writing in Java. I like the docs, the style and I actually li
 
 Example3 code is a simple JAVA GUI app that reads a database file (plaintext) and allows editing. Its uses full JavaDocs for every method and shows strict code style adhesion - Which by the way, I was required in the spec. to write functions such as `If` on one line and the following line contains the single `{` opening brace. I usually like to have the opening brace on the defininition line.
 
-This is a Swing UI app. Very Simple. You can run this java app by compiling with `java SongDatabase.java` and then running via `java SongDatabase mySongDB.data`
+This is a Swing UI app. Very Simple. You can run this java app by compiling with `javac SongDatabase.java` and then running via `java SongDatabase mySongDB.data`
 
 The below example shows a model for a music Track. Getters, Setters, private, public. Observe what I think is proper object oriented programming (especaiiyl with Java). There are more complicated controllers in example3, but this shows a pure data model encapsulation. Do check out the more complicated UI handler [here](https://github.com/gonzobrandon/goodform/blob/master/example3/SongDatabasePanel.java).
 
