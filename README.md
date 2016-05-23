@@ -2,6 +2,10 @@
 
 I'll walk through 3 examples of what I consider good form coding. Everything is code I have written - in a variety of languages and frameworks. Over the past 8 years, I have been working on proprietary and private software repos and I would love to open everything up to showcase - I'm bound by nondisclosure agreements.
 
+If there is anything specific you would like to see, please let me know and I can try and get clearance to release it in full or in part.
+
+Other languages I have extensive experience with that I can give full examples for: `PHP, MySQL, PostgreSQL, Python, BASH, Mathematica, GoLang` and more.
+
 ## Example 1: golang, AngularJS, Node, Postgres
 
 #### View this project:
