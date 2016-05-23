@@ -447,7 +447,7 @@ Example3 code is a simple JAVA GUI app that reads a database file (plaintext) an
 
 This is a Swing UI app. Very Simple.
 
-The below example shows a model for a music Track. There are more complicated controllers in example3, but this shows a pure data model encapsulation. Do check out the more complicated UI handler here.
+The below example shows a model for a music Track. Getters, Setters, private, public. Observe what I think is proper object oriented programming (especaiiyl with Java). There are more complicated controllers in example3, but this shows a pure data model encapsulation. Do check out the more complicated UI handler [here](https://github.com/gonzobrandon/goodform/blob/master/example3/SongDatabasePanel.java).
 
 
 ```
